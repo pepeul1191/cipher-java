@@ -20,15 +20,15 @@ import java.security.NoSuchAlgorithmException;
 
 public class EncryptDecrypt {
     private static final String SECRET_KEY_1 = "ssdkF$HUy2A#D%kd";
-    private static final String SECRET_KEY_2 = "weJiSEvR5yAC5ftB";
+    //private static final String SECRET_KEY_2 = "weJiSEvR5yAC5ftB";
  
     private IvParameterSpec ivParameterSpec;
     private SecretKeySpec secretKeySpec;
     private Cipher cipher;
  
-    public EncryptDecrypt() throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException {
+    public EncryptDecrypt(String key) throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException {
         ivParameterSpec = new IvParameterSpec(SECRET_KEY_1.getBytes("UTF-8"));
-        secretKeySpec = new SecretKeySpec(SECRET_KEY_2.getBytes("UTF-8"), "AES");
+        secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
         cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
     }
  
