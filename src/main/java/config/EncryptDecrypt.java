@@ -17,6 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class EncryptDecrypt {
     private static final String SECRET_KEY_1 = "ssdkF$HUy2A#D%kd";
@@ -68,5 +69,9 @@ public class EncryptDecrypt {
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
         byte[] decryptedBytes = cipher.doFinal(Base64.decodeBase64(encrypted));
         return new String(decryptedBytes);
+    }
+    
+    public String key(){
+        return RandomStringUtils.randomAlphabetic(16);
     }
 }
